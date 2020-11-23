@@ -1,9 +1,7 @@
-/* globals fetch */
 import './App.css'
 import 'tachyons'
 import { useEffect, useState } from 'react'
-import TriviaQuestions from './components/TrivaQuestions'
-import QuestionAnswer from './components/QuestionAnswer'
+import CategoryData from './components/CategoryData'
 
 function App () {
   const [categories, setCategories] = useState([])
@@ -18,8 +16,9 @@ function App () {
   }, [])
 
   if (selectedCategory) {
-    return (
-      <TriviaQuestions
+    return (/* globals fetch */
+
+      <CategoryData
         category={selectedCategory}
         clearSelectedCategory={() => setSelectedCategory(null)}
       />
@@ -43,7 +42,7 @@ function App () {
         )
     }
     <div className='triviaQuestions'>
-        {TriviaQuestions}
+        {CategoryData}
     </div>
     </div>
   )
